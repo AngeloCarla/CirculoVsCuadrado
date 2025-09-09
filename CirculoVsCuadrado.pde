@@ -1,14 +1,18 @@
-Jugador jugador;
-Enemigo enemigo;
+Jugador jugador; // Circulo
+Enemigo enemigo; // Cuadrado
 
-void setup(){
+void setup() {
   size(400, 400);
-  jugador = new Jugador(width/2, 300, 40);
+  jugador = new Jugador(width/2, 300, 40, 5);
   enemigo = new Enemigo(width/2, height/2, 60);
 }
 
-void draw(){
+void draw() {
   background(0);
   jugador.dibujar();
   enemigo.dibujar();
+}
+
+void keyPressed() {
+  jugador.mover(keyCode);
 }

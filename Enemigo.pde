@@ -1,7 +1,8 @@
 class Enemigo {
-  private int x, y, size;
+  private float x, y;
+  private int size;
 
-  public Enemigo(int x, int y, int size) {
+  public Enemigo(float x, float y, int size) {
     this.x = x;
     this.y = y;
     this.size = size;
