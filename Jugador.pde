@@ -37,7 +37,7 @@ class Jugador {
       break;
     }
 
-    // Limites
+    // Limite
     float radio = r / 2.0;
     pos.x = constrain(pos.x, radio, width - radio);
     pos.y = constrain(pos.y, radio, height - radio);
