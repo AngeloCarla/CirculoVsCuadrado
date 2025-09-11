@@ -2,11 +2,13 @@ class Enemigo {
   private PVector pos;
   private int tam;
   private int c;
+  private Jugador j;
 
-  public Enemigo(float x, float y, int tam) {
+  public Enemigo(float x, float y, int tam, Jugador j) {
     this.pos = new PVector(x, y);
     this.tam = tam;
     this.c = color(255);
+    this.j = j;
   }
 
   public void dibujar() {
@@ -17,8 +19,17 @@ class Enemigo {
   }
 
   public void escapar() {
-    pos.x = random(tam/2, width - tam/2);
-    pos.y = random(tam/2, height - tam/2);
+
+    // Movimiento
+    PVector dir = PVector.sub(pos, j.getPos());
+    dir.normalize();
+    dir.mult(20); // distancia a moverse
+    pos.add(dir);
+
+    // Limite
+    float mitad = tam / 2.0;
+    pos.x = constrain(pos.x, mitad, width - mitad);
+    pos.y = constrain(pos.y, mitad, height - mitad);
   }
 
   public void setColor(int nuevoColor) {
