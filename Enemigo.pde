@@ -21,15 +21,15 @@ class Enemigo {
   public void escapar() {
 
     // Movimiento
-    PVector dir = PVector.sub(pos, j.getPos);
+    PVector dir = PVector.sub(pos, j.getPos());
     dir.normalize();
     dir.mult(20); // distancia a moverse
     pos.add(dir);
 
     // Limite
     float mitad = tam / 2.0;
-    posx = constrain(pos.x, mitad, width - mitad);
-    posy = constrain(pos.y, mitad, height - mitad);
+    pos.x = constrain(pos.x, mitad, width - mitad);
+    pos.y = constrain(pos.y, mitad, height - mitad);
   }
 
   public void setColor(int nuevoColor) {
@@ -43,5 +43,4 @@ class Enemigo {
   public int getTam() {
     return tam;
   }
-}
 }
